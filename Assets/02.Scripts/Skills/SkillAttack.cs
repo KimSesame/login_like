@@ -1,13 +1,34 @@
+using System;
 using UnityEngine;
 
-public class SkillAttack : MonoBehaviour
+public class SkillAttack : Skill
 {
     [SerializeField]
-    SkillTypeAttack typeAttack;
+    TypeAttack attackType;
 
-    public void UseSkill()
+    private void Awake()
     {
-        if (typeAttack.locked) Debug.Log("Skill a locked");
+        skillType = SkillType.TypeAttack;
+    }
+
+    public override void UseSkill()
+    {
+        if (skillInfo.locked) Debug.Log("Skill a locked");
         else Debug.Log("Use skill a");
+    }
+
+    public override SkillInfo GetSkillInfo()
+    {
+        return skillInfo;
+    }
+
+    public override SkillType GetSkillType()
+    {
+        return skillType;
+    }
+
+    public override Enum GetSkillNum()
+    {
+        return attackType;
     }
 }

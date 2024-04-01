@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public enum Target
 {
@@ -49,7 +50,7 @@ public enum TypeBuff
 [Flags]
 public enum TypeDebuff
 {
-    DOTdmg = 1,
+    DOT_dmg = 1,
     Weaken = 2,
     Stun = 4,
     Blind = 8,
@@ -59,37 +60,23 @@ public enum TypeDebuff
     Psychokinesis = 128
 }
 
-[Flags]
 public enum SkillType
 {
-    TypeAttack = 1,
-    TypeDefense = 2,
-    TypeBuff = 4,
-    TypeDebuff = 8
+    TypeAttack,
+    TypeDefense,
+    TypeBuff,
+    TypeDebuff
 }
 
 [Serializable]
-public struct SkillTypeAttack
+public struct SkillInfo
 {
+    public Sprite icon;
     public bool locked;
+    public byte cost;
     public Target target;
     public Range range;
-}
-
-[Serializable]
-public struct SkillTypeDefense
-{
-    public bool locked;
-    public Target target;
-    public Range range;
-}
-
-[Serializable]
-public struct SkillTypeBuff
-{
-    public bool locked;
-    public Target target;
-    public Range range;
+    public float[] mass;
 }
 
 [Serializable]
