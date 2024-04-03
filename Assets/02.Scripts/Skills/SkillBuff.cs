@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 
-public class SkillAttack : Skill
+public class SkillBuff : Skill
 {
     [SerializeField]
-    TypeAttack attackType;
+    TypeBuff buffType;
 
     private void Awake()
     {
@@ -29,6 +29,6 @@ public class SkillAttack : Skill
 
     public override Enum GetSkillNum()
     {
-        return attackType;
+        return buffType;
     }
 }
