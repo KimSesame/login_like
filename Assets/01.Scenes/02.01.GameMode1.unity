@@ -168,14 +168,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTargetingWin: {fileID: 427743455}
-  teamPosTrans: {fileID: 0}
+  teamPosTrans: {fileID: 586380690}
   enemyPosTrans: {fileID: 122798292}
   teamPos: []
-  enemyPos:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  enemyPos: []
   nowCostShower: {fileID: 521335608}
 --- !u!1 &62303822
 GameObject:
@@ -2772,7 +2768,7 @@ GameObject:
   - component: {fileID: 586380692}
   - component: {fileID: 586380691}
   m_Layer: 0
-  m_Name: PlayerPos
+  m_Name: TeamPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

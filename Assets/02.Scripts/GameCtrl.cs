@@ -27,6 +27,9 @@ public class GameCtrl : MonoBehaviour
     {
         instance = this;
 
+        teamPos = new Transform[teamPosTrans.childCount];
+        enemyPos = new Transform[enemyPosTrans.childCount];
+
         for (int i = 0; i < teamPosTrans.childCount; i++)
         {
             teamPos[i] = teamPosTrans.GetChild(i);
