@@ -8,8 +8,8 @@ public class SelectAll : TargetSelector
             
             for (int i = 0; i < GameCtrl.instance.enemyPos.Length / 2; i++)
             {
-                GameCtrl.instance.teamPos[i].GetChild(0).TryGetComponent(out targets[i]);
-                GameCtrl.instance.enemyPos[i].GetChild(0).TryGetComponent(out targets[i + GameCtrl.instance.enemyPos.Length / 2]);
+                if (GameCtrl.instance.teamPos[v].childCount > 0) GameCtrl.instance.teamPos[i].GetChild(0).TryGetComponent(out targets[i]);
+                if (GameCtrl.instance.enemyPos[v].childCount > 0) GameCtrl.instance.enemyPos[i].GetChild(0).TryGetComponent(out targets[i + GameCtrl.instance.enemyPos.Length / 2]);
             }
         }
         else
@@ -18,8 +18,8 @@ public class SelectAll : TargetSelector
             
             for (int i = 0; i < GameCtrl.instance.enemyPos.Length / 2; i++)
             {
-                if (skill.GetSkillInfo().target == Target.Team) GameCtrl.instance.teamPos[i].GetChild(0).TryGetComponent(out targets[i]);
-                else GameCtrl.instance.enemyPos[i].GetChild(0).TryGetComponent(out targets[i]);
+                if (skill.GetSkillInfo().target == Target.Team && GameCtrl.instance.teamPos[v].childCount > 0) GameCtrl.instance.teamPos[i].GetChild(0).TryGetComponent(out targets[i]);
+                else if (skill.GetSkillInfo().target == Target.Enemy && GameCtrl.instance.enemyPos[v].childCount > 0) GameCtrl.instance.enemyPos[i].GetChild(0).TryGetComponent(out targets[i]);
             }
         }
 
