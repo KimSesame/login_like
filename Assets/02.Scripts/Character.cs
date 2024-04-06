@@ -12,7 +12,7 @@ public abstract class Character : MonoBehaviour
     Transform stateTrans/*버프, 디버프 등에 효과를 받고 있는 것을 보여줄 표시들을 담을 부모 오브젝트*/;
     [SerializeField]
     protected Status status; //캐릭터 고유 능력치
-    float finalAtk/*최종 공격력*/, 
+    float finalAtk/*최종 공격력*/,
         finalDef/*최종 방어력*/,
         nowHp /*현재 체력*/;
 
@@ -164,6 +164,7 @@ public abstract class Character : MonoBehaviour
         if (nowHp <= 0)
         {
             Debug.Log("Dead");
+            Destroy(gameObject);
         }
     }
 
