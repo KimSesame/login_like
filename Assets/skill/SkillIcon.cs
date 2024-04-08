@@ -7,7 +7,6 @@ public class SkillIcon : MonoBehaviour
     // Start is called before the first frame update
     public float speed = 5f;
     private Rigidbody2D rb;
-    public static float cur;
     private bool canMove = true;
     void Start()
     {   
@@ -22,5 +21,6 @@ public class SkillIcon : MonoBehaviour
     
     private void OnMouseDown() {//클릭시
         Destroy(gameObject);
+        SkillSpawn.cur--;
     }
 }
