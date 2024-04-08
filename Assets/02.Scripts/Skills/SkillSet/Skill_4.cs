@@ -3,25 +3,22 @@ using UnityEngine;
 
 public class Skill_4 : Skill
 {
+    [Header("Type Defense")]
     [SerializeField]
-    TypeBuff buffType;
+    TypeDebuff defenseType;
 
     private void Awake()
     {
-        skillType = SkillType.TypeBuff;
+        skillType = SkillType.TypeDefense;
     }
 
     public override void UseSkill()
     {
-        for (int i = 0; i < targets.Length; i++)
-        {
-            if (targets[i] != null)
-                targets[i].GetSkilledDefense(owner.GetDef() * skillInfo.mass[0], (byte)skillInfo.mass[1], skillInfo.icon);
-        }
+        owner.GetSkilledDefense(owner.GetDef() * skillInfo.mass[0], (byte)skillInfo.mass[1], skillInfo.icon);
     }
 
     public override Enum GetSkillNum()
     {
-        return buffType;
+        return defenseType;
     }
 }

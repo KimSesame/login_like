@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Skill_1 : Skill
 {
+    [Header("Type Attack")]
     [SerializeField]
     TypeAttack attackType;
     [SerializeField]

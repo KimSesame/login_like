@@ -21,8 +21,7 @@ public enum TypeAttack
 {
     Normal = 1, //일반 공격
     multiple = 2, //다중 공격
-    Penetrate = 4, //관통 공격
-    Delay = 8 //시간차 공격
+    Delay = 4, //시간차 공격
 }
 
 [Flags]

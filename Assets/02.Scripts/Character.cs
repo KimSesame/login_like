@@ -135,7 +135,7 @@ public abstract class Character : MonoBehaviour
     public abstract void Selected();
 
     //피해를 받을 때 호출
-    public void GetSkilledDamaged(float mass1/*피해량*/, bool isPenetrate/*관통공격인지 확인*/)
+    public float GetSkilledDamaged(float mass1/*피해량*/, bool isPenetrate/*관통공격인지 확인*/)
     {
         float dmgedInc = 1;
         int count = affectsWhenDamaged.Count;
@@ -156,8 +156,11 @@ public abstract class Character : MonoBehaviour
             }
         }
 
-        if (isPenetrate) nowHp = Mathf.Clamp((nowHp - mass1) * dmgedInc, 0, status.maxHp);
-        else nowHp = Mathf.Clamp(nowHp - Mathf.Clamp((mass1 - finalDef) * dmgedInc * (1 - status.decRate / 100), 0, (mass1 - finalDef) * dmgedInc * (1 - status.decRate / 100)), 0, status.maxHp);
+        float dmgMass = 0;
+        if (isPenetrate) dmgMass = mass1 * dmgedInc * (1 - status.decRate / 100);
+        else dmgMass = Mathf.Clamp((mass1 - finalDef) * dmgedInc * (1 - status.decRate / 100), 0, (mass1 - finalDef) * dmgedInc * (1 - status.decRate / 100));
+        
+        nowHp = Mathf.Clamp(nowHp - dmgMass, 0, status.maxHp);
 
         SetHpShower();
 
@@ -166,6 +169,8 @@ public abstract class Character : MonoBehaviour
             Debug.Log("Dead");
             Destroy(gameObject);
         }
+
+        return dmgMass;
     }
 
     //다중 공격을 받을 때 호출

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Skill_5 : Skill
 {
+    [Header("Type Buff")]
     [SerializeField]
     TypeBuff buffType;
 

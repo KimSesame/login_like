@@ -13,7 +13,8 @@ public abstract class Skill : MonoBehaviour
 
     public void SkillSelected()
     {
-        GameCtrl.instance.SelectSkill(this);
+        if (skillType == SkillType.TypeDefense) GameCtrl.instance.SelectSkill(this, owner);
+        else GameCtrl.instance.SelectSkill(this);
     }
 
     //스킬을 사용할 때 해당 함수를 호출하여 타깃을 전달

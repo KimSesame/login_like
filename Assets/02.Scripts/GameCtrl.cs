@@ -57,6 +57,20 @@ public class GameCtrl : MonoBehaviour
         }
     }
 
+    //레일에서 스킬을 선택할 때 호출하여 사용 스킬 정보를 전달
+    public void SelectSkill(Skill skill, Character owner)
+    {
+        if (skill.GetSkillInfo().cost > nowCost)
+        {
+            Debug.Log("Not enough cost");
+        }
+        else
+        {
+            skillTargetingWin.SetActive(true);
+            targetSelectConnector.StartTargetSelect(skill);
+        }
+    }
+
     public void TurnEnder()
     {
         TurnEnd();

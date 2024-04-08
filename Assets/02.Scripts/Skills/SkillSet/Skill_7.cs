@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Skill_7 : Skill
 {
+    [Header("Type Debuff")]
     [SerializeField]
     TypeDebuff debuffType;
 
