@@ -18,8 +18,9 @@ public class SkillIcon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(canMove){
-        rb.velocity= new Vector2(-1,0)*speed;
+        if(canMove)
+        {
+            rb.velocity= new Vector2(-1,0)*speed;
         }else{
             rb.velocity = Vector2.zero;
             Vector3 currentPosition = transform.position;
@@ -37,18 +38,21 @@ public class SkillIcon : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         // "Wall" 태그를 가진 오브젝트와 충돌 시 멈춤
-        if (collision.gameObject.tag == "Wall")
+        if (collision.gameObject.CompareTag("Wall"))
         {
             canMove = false;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
         // "Wall" 태그를 가진 오브젝트와 충돌이 끝나면 다시 이동 가능
-        if (collision.gameObject.tag == "Wall")
+        if (collision.gameObject.CompareTag("Wall"))
         {
             canMove = true;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionY |
+                RigidbodyConstraints2D.FreezeRotation;
         }
     }
     private void OnTriggerEnter2D(Collider2D other) {
