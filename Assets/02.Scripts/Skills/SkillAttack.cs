@@ -1,10 +1,14 @@
 using System;
+using Unity.Collections;
 using UnityEngine;
 
 public class SkillAttack : Skill
 {
+    [Header("Type Attack")]
     [SerializeField]
-    TypeAttack attackType;
+    protected TypeAttack attackType;
+    [SerializeField]
+    protected bool isPenetrate;
 
     private void Awake()
     {

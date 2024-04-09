@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class SkillDebuff : Skill
 {
+    [Header("Type Debuff")]
     [SerializeField]
-    TypeDebuff debuffType;
+    protected TypeDebuff debuffType;
 
     private void Awake()
     {

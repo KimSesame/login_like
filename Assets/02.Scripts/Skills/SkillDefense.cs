@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class SkillDefense : Skill
 {
+    [Header("Type Defense")]
     [SerializeField]
-    TypeDefense defenseType;
+    protected TypeDefense defenseType;
 
     private void Awake()
     {

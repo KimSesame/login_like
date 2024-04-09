@@ -89,9 +89,21 @@ public struct SkillInfo
 public struct Status
 {
     public ushort serialNum; //캐릭터 고유 번호
-    public int atk; //공격력
-    public int def; //방어력
-    public int decRate; //피해 감소율
-    public float avoidRate; //회피 율
+    [Space(10)]
     public float maxHp; //최대 체력
+    public float maxMp; //최대 마나
+    [Space(10)]
+    public int atk; //공격력
+    public int magicPower; //주문력
+    [Space(10)]
+    public int def; //방어력
+    public int magicDef; //마법 저항력
+    [Space(10)]
+    public float accuracy; //명중률
+    public float avoidRate; //회피율
+    public float criticalRate; //치명타율
+    public float ccResistance; //군중제어 저향력
+    [Space(10)]
+    public int decRate; //피해 감소율
+
 }

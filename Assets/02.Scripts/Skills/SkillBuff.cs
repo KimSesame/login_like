@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class SkillBuff : Skill
 {
+    [Header("Type Buff")]
     [SerializeField]
-    TypeBuff buffType;
+    protected TypeBuff buffType;
 
     private void Awake()
     {

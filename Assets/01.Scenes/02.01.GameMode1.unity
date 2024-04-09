@@ -1166,11 +1166,17 @@ MonoBehaviour:
   stateTrans: {fileID: 149181459}
   status:
     serialNum: 1
-    atk: 5
-    def: 2
-    decRate: 0
-    avoidRate: 0
     maxHp: 30
+    maxMp: 0
+    atk: 5
+    magicPower: 0
+    def: 2
+    magicDef: 0
+    accuracy: 0
+    avoidRate: 0
+    criticalRate: 0
+    ccResistance: 0
+    decRate: 0
   nowHpImg: {fileID: 1113570908}
   hpShower: {fileID: 2138471049}
   defShower: {fileID: 62303823}
@@ -3615,7 +3621,7 @@ MonoBehaviour:
     mass:
     - 1.2
   owner: {fileID: 204145962}
-  attackType: 8
+  attackType: 1
   isPenetrate: 1
 --- !u!4 &759765953
 Transform:
@@ -4276,11 +4282,17 @@ MonoBehaviour:
   stateTrans: {fileID: 1426212275}
   status:
     serialNum: 2
-    atk: 5
-    def: 2
-    decRate: 0
-    avoidRate: 0
     maxHp: 30
+    maxMp: 0
+    atk: 5
+    magicPower: 0
+    def: 2
+    magicDef: 0
+    accuracy: 0
+    avoidRate: 0
+    criticalRate: 0
+    ccResistance: 0
+    decRate: 0
   nowHpImg: {fileID: 337543207}
   hpShower: {fileID: 1492124555}
   defShower: {fileID: 314159139}
@@ -4414,7 +4426,7 @@ MonoBehaviour:
     - 0.5
     - 3
   owner: {fileID: 204145962}
-  buffType: 2
+  defenseType: 0
 --- !u!1 &979748094
 GameObject:
   m_ObjectHideFlags: 0
@@ -7266,7 +7278,7 @@ MonoBehaviour:
     - 0.5
     - 3
   owner: {fileID: 204145962}
-  buffType: 4
+  debuffType: 0
 --- !u!1 &1805657028
 GameObject:
   m_ObjectHideFlags: 0
