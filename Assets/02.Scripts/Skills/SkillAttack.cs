@@ -1,5 +1,4 @@
 using System;
-using Unity.Collections;
 using UnityEngine;
 
 public class SkillAttack : Skill
@@ -8,7 +7,7 @@ public class SkillAttack : Skill
     [SerializeField]
     protected TypeAttack attackType;
     [SerializeField]
-    protected bool isPenetrate;
+    protected bool isPenetrate, isLifeAbsorb;
 
     private void Awake()
     {

@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public abstract class Character : MonoBehaviour
 {
     [SerializeField]
-    GameObject skillAffectsPrefab/*스킬의 효과가 남는 스킬들*/;
+    GameObject skillAffectsPrefab/*스킬의 효과가 남는 스킬들*/,
+        dmgShowerPrefab/*피해를 받을 시 피해량을 표시해 줄 프리팹*/;
     [SerializeField]
     Transform stateTrans/*버프, 디버프 등에 효과를 받고 있는 것을 보여줄 표시들을 담을 부모 오브젝트*/;
     [SerializeField]
@@ -156,11 +157,13 @@ public abstract class Character : MonoBehaviour
             }
         }
 
-        float dmgMass = 0;
-        if (isPenetrate) dmgMass = mass1 * dmgedInc * (1 - status.decRate / 100);
-        else dmgMass = Mathf.Clamp((mass1 - finalDef) * dmgedInc * (1 - status.decRate / 100), 0, (mass1 - finalDef) * dmgedInc * (1 - status.decRate / 100));
+        float dmgMass;
+        if (isPenetrate) dmgMass = mass1 * dmgedInc;
+        else dmgMass = Mathf.Clamp((mass1 - finalDef) * dmgedInc, 0, (mass1 - finalDef) * dmgedInc);
         
         nowHp = Mathf.Clamp(nowHp - dmgMass, 0, status.maxHp);
+
+        Instantiate(dmgShowerPrefab, transform.position, Quaternion.identity).GetComponent<DmgMassShow>().Set(0, dmgMass);
 
         SetHpShower();
 

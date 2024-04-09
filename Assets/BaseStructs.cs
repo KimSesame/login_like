@@ -28,11 +28,10 @@ public enum TypeAttack
 public enum TypeDefense
 {
     GetDef = 1, //방어도 획득
-    GetDec = 2, //피해 감소율 획득
-    GetAvoid = 4, //회피율 획득
-    Reflect = 8, //피해 반사 획득
-    Aggro = 16, //도발
-    ImmuneDmg = 32 //무적
+    GetAvoid = 2, //회피율 획득
+    Reflect = 4, //피해 반사 획득
+    Aggro = 8, //도발
+    ImmuneDmg = 16 //무적
 }
 
 [Flags]
@@ -103,7 +102,5 @@ public struct Status
     public float avoidRate; //회피율
     public float criticalRate; //치명타율
     public float ccResistance; //군중제어 저향력
-    [Space(10)]
-    public int decRate; //피해 감소율
 
 }

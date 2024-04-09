@@ -297,6 +297,7 @@ MonoBehaviour:
   owner: {fileID: 832871573}
   attackType: 1
   isPenetrate: 0
+  isLifeAbsorb: 0
 --- !u!4 &34550462
 Transform:
   m_ObjectHideFlags: 0
@@ -2793,6 +2794,7 @@ MonoBehaviour:
   owner: {fileID: 832871573}
   attackType: 2
   isPenetrate: 0
+  isLifeAbsorb: 0
 --- !u!4 &491150657
 Transform:
   m_ObjectHideFlags: 0
@@ -3086,6 +3088,7 @@ MonoBehaviour:
   owner: {fileID: 832871573}
   attackType: 8
   isPenetrate: 1
+  isLifeAbsorb: 0
 --- !u!4 &550120102
 Transform:
   m_ObjectHideFlags: 0
@@ -3420,7 +3423,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 360929427}
-  m_PlaneDistance: 1
+  m_PlaneDistance: 5
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -3976,7 +3979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &832871573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3990,14 +3993,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillAffectsPrefab: {fileID: 1160373110691010807, guid: d2c5e6783fddbc046a337a9a8a35ea8d, type: 3}
+  dmgShowerPrefab: {fileID: 3456856783107119159, guid: 12dcc07d00a661e459bb8a25711d7011, type: 3}
   stateTrans: {fileID: 1312348571}
   status:
     serialNum: 1
-    atk: 5
-    def: 2
-    decRate: 0
-    avoidRate: 0
     maxHp: 30
+    maxMp: 0
+    atk: 5
+    magicPower: 0
+    def: 2
+    magicDef: 0
+    accuracy: 0
+    avoidRate: 0
+    criticalRate: 0
+    ccResistance: 0
   nowHpImg: {fileID: 454856697}
   hpShower: {fileID: 389775680}
   defShower: {fileID: 842572558}
@@ -6987,7 +6996,7 @@ MonoBehaviour:
     - 0.5
     - 3
   owner: {fileID: 832871573}
-  buffType: 4
+  debuffType: 0
 --- !u!4 &1541652325
 Transform:
   m_ObjectHideFlags: 0
@@ -7206,7 +7215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1598074759
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7242,14 +7251,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillAffectsPrefab: {fileID: 1160373110691010807, guid: d2c5e6783fddbc046a337a9a8a35ea8d, type: 3}
+  dmgShowerPrefab: {fileID: 3456856783107119159, guid: 12dcc07d00a661e459bb8a25711d7011, type: 3}
   stateTrans: {fileID: 785591630}
   status:
     serialNum: 2
-    atk: 5
-    def: 2
-    decRate: 0
-    avoidRate: 0
     maxHp: 30
+    maxMp: 0
+    atk: 5
+    magicPower: 0
+    def: 2
+    magicDef: 0
+    accuracy: 0
+    avoidRate: 0
+    criticalRate: 0
+    ccResistance: 0
   nowHpImg: {fileID: 1516670869}
   hpShower: {fileID: 1835564600}
   defShower: {fileID: 24515231}
