@@ -8,7 +8,7 @@ public abstract class Skill : MonoBehaviour
     protected SkillType skillType /*해당 스킬의 종류*/;
     protected Character[] targets/*스킬 사용 타깃들 배열*/;
     [SerializeField]
-    protected Character owner; //해당 스킬의 주인 캐릭터
+    public Character owner; //해당 스킬의 주인 캐릭터
     protected ushort serialNum; //캐릭터 고유 번호
 
     public void SkillSelected()

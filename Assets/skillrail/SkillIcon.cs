@@ -9,30 +9,37 @@ public class SkillIcon : MonoBehaviour
     private Rigidbody2D rb;
     private bool canMove = true;
 
-    private bool click =false;
+    private bool click = false;
     void Start()
-    {   
-         rb = GetComponent<Rigidbody2D>();
+    {
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(canMove){
-        rb.velocity= new Vector2(-1,0)*speed;
-        }else{
+        if (canMove)
+        {
+            rb.velocity = new Vector2(-1, 0) * speed;
+        }
+        else
+        {
             rb.velocity = Vector2.zero;
             Vector3 currentPosition = transform.position;
             transform.position = currentPosition;
         }
-        
+
     }
-    
-    private void OnMouseDown() {//클릭시
-    if(click==true){
-        Destroy(gameObject);
-        SkillSpawn.cur--;
-    }
+
+    private void OnMouseDown()
+    {//클릭시
+        if (click == true)
+        {
+            Destroy(gameObject);
+            SkillSpawn.cur--;
+
+            GetComponent<Skill>().SkillSelected();
+        }
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -51,7 +58,8 @@ public class SkillIcon : MonoBehaviour
             canMove = true;
         }
     }
-    private void OnTriggerEnter2D(Collider2D other) {
-        click=true;
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        click = true;
     }
 }

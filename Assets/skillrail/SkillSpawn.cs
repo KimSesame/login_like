@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class SkillSpawn : MonoBehaviour
@@ -15,12 +16,12 @@ public class SkillSpawn : MonoBehaviour
     public GameObject skill7;
 
     public List<GameObject> slist = new List<GameObject>();
-    List<int> numbers = new List<int> { 0,1, 2, 3, 4, 5, 6 };
-    float max=8;
-    public static float cur=0;
+    List<int> numbers = new List<int> { 0, 1, 2, 3, 4, 5, 6 };
+    float max = 8;
+    public static float cur = 0;
 
-    public int sufflecount=0;
-    float timer=0;
+    public int sufflecount = 0;
+    float timer = 0;
     void Start()
     {
         ShuffleList(numbers);
@@ -35,19 +36,20 @@ public class SkillSpawn : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
+    {
         //숫자를 랜덤으로 뽑기
-        timer+=Time.deltaTime;
-        if(cur<=max&&timer>1){
-            if(sufflecount==7){
-                sufflecount=0;
+        timer += Time.deltaTime;
+        if (cur <= max && timer > 1)
+        {
+            if (sufflecount == 7)
+            {
+                sufflecount = 0;
                 ShuffleList(numbers);
             }
-            GameObject newskill = Instantiate(slist[numbers[sufflecount]]);
+            Instantiate(slist[numbers[sufflecount]], new Vector3(10, -3f, 0), Quaternion.identity).GetComponent<Skill>().owner = GameCtrl.instance.teamPos[0].GetComponent<Character>();
             sufflecount++;
-            newskill.transform.position=new Vector3(10,-3f,0);
             cur++;
-            timer=0;
+            timer = 0;
         }
     }
 

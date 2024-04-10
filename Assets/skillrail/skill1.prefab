@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2003116525892337800}
   - component: {fileID: 5039918340781959121}
   - component: {fileID: 5116754834190538305}
+  - component: {fileID: 8251332500826099765}
   m_Layer: 0
   m_Name: skill1
   m_TagString: Wall
@@ -172,3 +173,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8251332500826099765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2347444302413177453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 341c1d4e5cb7ebe468e6ecbb991bf6fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillInfo:
+    icon: {fileID: 21300000, guid: 2c83a8a536a684140ba979c37c7d7ca6, type: 3}
+    locked: 0
+    cost: 1
+    target: 1
+    range: 0
+    mass:
+    - 1.2
+  owner: {fileID: 0}
+  attackType: 8
+  isPenetrate: 1
+  isLifeAbsorb: 0
