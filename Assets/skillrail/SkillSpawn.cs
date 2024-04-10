@@ -46,7 +46,7 @@ public class SkillSpawn : MonoBehaviour
                 sufflecount = 0;
                 ShuffleList(numbers);
             }
-            Instantiate(slist[numbers[sufflecount]], new Vector3(10, -3f, 0), Quaternion.identity).GetComponent<Skill>().owner = GameCtrl.instance.teamPos[0].GetComponent<Character>();
+            Instantiate(slist[numbers[sufflecount]], new Vector3(10, -3f, 0), Quaternion.identity).GetComponent<Skill>().owner = GameCtrl.instance.teamPos[0].GetChild(0).GetComponent<Character>();
             sufflecount++;
             cur++;
             timer = 0;
