@@ -44,20 +44,18 @@ public class SkillIcon : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         // "Wall" 태그를 가진 오브젝트와 충돌 시 멈춤
-        if (collision.gameObject.transform.position.x < transform.position.x && collision.gameObject.tag == "Wall")
+        if (collision.gameObject.transform.position.x < transform.position.x && collision.gameObject.CompareTag("Wall"))
         {
             canMove = false;
-            // gameObject.tag = "Wall";
         }
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
         // "Wall" 태그를 가진 오브젝트와 충돌이 끝나면 다시 이동 가능
-        if (collision.gameObject.transform.position.x < transform.position.x && collision.gameObject.tag == "Wall")
+        if (collision.gameObject.transform.position.x < transform.position.x && collision.gameObject.CompareTag("Wall"))
         {
             canMove = true;
-            // gameObject.tag = "Untagged";
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
