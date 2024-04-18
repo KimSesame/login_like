@@ -685,6 +685,7 @@ MonoBehaviour:
   owner: {fileID: 204145962}
   attackType: 2
   isPenetrate: 0
+  isLifeAbsorb: 0
 --- !u!1 &149181458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,6 +1164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillAffectsPrefab: {fileID: 1160373110691010807, guid: d2c5e6783fddbc046a337a9a8a35ea8d, type: 3}
+  dmgShowerPrefab: {fileID: 0}
   stateTrans: {fileID: 149181459}
   status:
     serialNum: 1
@@ -1176,7 +1178,6 @@ MonoBehaviour:
     avoidRate: 0
     criticalRate: 0
     ccResistance: 0
-    decRate: 0
   nowHpImg: {fileID: 1113570908}
   hpShower: {fileID: 2138471049}
   defShower: {fileID: 62303823}
@@ -2075,6 +2076,7 @@ MonoBehaviour:
   owner: {fileID: 204145962}
   attackType: 1
   isPenetrate: 0
+  isLifeAbsorb: 0
 --- !u!4 &418561531
 Transform:
   m_ObjectHideFlags: 0
@@ -3623,6 +3625,7 @@ MonoBehaviour:
   owner: {fileID: 204145962}
   attackType: 1
   isPenetrate: 1
+  isLifeAbsorb: 0
 --- !u!4 &759765953
 Transform:
   m_ObjectHideFlags: 0
@@ -4279,6 +4282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillAffectsPrefab: {fileID: 1160373110691010807, guid: d2c5e6783fddbc046a337a9a8a35ea8d, type: 3}
+  dmgShowerPrefab: {fileID: 0}
   stateTrans: {fileID: 1426212275}
   status:
     serialNum: 2
@@ -4292,7 +4296,6 @@ MonoBehaviour:
     avoidRate: 0
     criticalRate: 0
     ccResistance: 0
-    decRate: 0
   nowHpImg: {fileID: 337543207}
   hpShower: {fileID: 1492124555}
   defShower: {fileID: 314159139}
