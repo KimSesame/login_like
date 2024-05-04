@@ -8,10 +8,12 @@ public class BattleManager : MonoBehaviour
 {
     public int totalMana;
     public int currentMana;
+    public GameObject[] skills;
+    public int skillCount;
+    public int railLimit;
     public TextMeshProUGUI totalManaText;
     public TextMeshProUGUI currentManaText;
 
-    // Start is called before the first frame update
     void Awake()
     {
         UpdateMana();

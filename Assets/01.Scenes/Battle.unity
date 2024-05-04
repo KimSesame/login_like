@@ -123,6 +123,60 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &494126708
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 494126709}
+  - component: {fileID: 494126710}
+  m_Layer: 0
+  m_Name: RailManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &494126709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494126708}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 542, y: -324, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 915519730}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &494126710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494126708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e4be7495e7ca6740952a96a24010157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillCount: 7
+  skillPrefabs:
+  - {fileID: 8460996381909791112, guid: c4a448786dd5b1c4cb2f1f36b6673049, type: 3}
+  - {fileID: 8336120612488333097, guid: 38f0e9a3072982849953a043577b6bfc, type: 3}
+  - {fileID: 1168352642741966218, guid: af298b3af50dd1542bb9522338758181, type: 3}
+  - {fileID: 4345541969780851501, guid: 1042e6c633e79fb428c27c7a3c4335e9, type: 3}
+  - {fileID: 4463296555150251454, guid: 20703d8d28c8a0549a35b26982823f4b, type: 3}
+  - {fileID: 6002193318557508810, guid: 172909626a7b60f40af8ed6f67de067c, type: 3}
+  - {fileID: 8938782265325832332, guid: 5a6c9332b19ea5f4894eaafefbbcd132, type: 3}
+  railMax: -1
 --- !u!1 &819843116
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,6 +405,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 494126709}
   - {fileID: 1448072898}
   - {fileID: 1681482519}
   - {fileID: 819843117}
@@ -820,6 +875,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalMana: 5
   currentMana: 5
+  skills:
+  - {fileID: 8460996381909791112, guid: c4a448786dd5b1c4cb2f1f36b6673049, type: 3}
+  - {fileID: 8336120612488333097, guid: 38f0e9a3072982849953a043577b6bfc, type: 3}
+  - {fileID: 1168352642741966218, guid: af298b3af50dd1542bb9522338758181, type: 3}
+  - {fileID: 4345541969780851501, guid: 1042e6c633e79fb428c27c7a3c4335e9, type: 3}
+  - {fileID: 4463296555150251454, guid: 20703d8d28c8a0549a35b26982823f4b, type: 3}
+  - {fileID: 6002193318557508810, guid: 172909626a7b60f40af8ed6f67de067c, type: 3}
+  - {fileID: 8938782265325832332, guid: 5a6c9332b19ea5f4894eaafefbbcd132, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  skillCount: 7
+  railLimit: 5
   totalManaText: {fileID: 1448072899}
   currentManaText: {fileID: 1681482520}
 --- !u!4 &2058338515
@@ -831,7 +899,7 @@ Transform:
   m_GameObject: {fileID: 2058338513}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4364517, y: -0.74351907, z: 0.65300727}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
