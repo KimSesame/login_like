@@ -8,8 +8,9 @@ public class SkillIcon : MonoBehaviour
     public float speed = 9f;
     private Rigidbody2D rb;
     private bool canMove = true;
-
     private bool click = false;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,11 +31,14 @@ public class SkillIcon : MonoBehaviour
         }
 
     }
-
+    
     private void OnMouseDown()
-    {//클릭시
+    {
+        //클릭시
         if (click == true)
         {
+            Deck.usedSkills.Add(gameObject.GetComponent<SpriteRenderer>().sprite);
+
             Destroy(gameObject);
             SkillSpawn.cur--;
 
@@ -58,8 +62,11 @@ public class SkillIcon : MonoBehaviour
             canMove = true;
         }
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         click = true;
+
+        Deck.deck.Remove(gameObject);
     }
 }

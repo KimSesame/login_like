@@ -13,7 +13,8 @@ public class SkillSpawn : MonoBehaviour
     public GameObject skill4;
     public GameObject skill5;
     public GameObject skill6;
-    public GameObject skill7;
+    public GameObject skill7;  
+    public static bool isScrollFilled = false;
 
     public List<GameObject> slist = new List<GameObject>();
     List<int> numbers = new List<int> { 0, 1, 2, 3, 4, 5, 6 };
@@ -46,10 +47,19 @@ public class SkillSpawn : MonoBehaviour
                 sufflecount = 0;
                 ShuffleList(numbers);
             }
-            Instantiate(slist[numbers[sufflecount]], new Vector3(10, -3f, 0), Quaternion.identity).GetComponent<Skill>().owner = GameCtrl.instance.teamPos[0].GetChild(0).GetComponent<Character>();
+            GameObject new_skill = Instantiate(slist[numbers[sufflecount]], new Vector3(10, -3f, 0), Quaternion.identity);
+            new_skill.GetComponent<Skill>().owner = GameCtrl.instance.teamPos[0].GetChild(0).GetComponent<Character>();
+            Deck.deck.Add(new_skill);
             sufflecount++;
             cur++;
             timer = 0;
+
+            isScrollFilled = false;
+        }
+
+        else if(cur>max)
+        {
+            isScrollFilled = true;
         }
     }
 
