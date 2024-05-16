@@ -17,27 +17,41 @@ public abstract class Skill : MonoBehaviour
         else GameCtrl.instance.SelectSkill(this);
     }
 
-    //스킬을 사용할 때 해당 함수를 호출하여 타깃을 전달
+    /// <summary>
+    /// 스킬을 사용할 때 해당 함수를 호출하여 타깃을 전달
+    /// </summary>
+    /// <param name="targetsV">스킬의 영향을 받는 타깃들</param>
     public void TargetSelected(Character[] targetsV)
     {
         targets = targetsV;
     }
 
-    //해당 스킬의 사용이 확정되었을 때 호출하여 스킬을 사용
+    /// <summary>
+    /// 해당 스킬의 사용이 확정되었을 때 호출하여 스킬을 사용
+    /// </summary>
     public abstract void UseSkill();
 
-    //해당 스킬의 정보를 반환
+    /// <summary>
+    /// 해당 스킬의 정보를 반환
+    /// </summary>
+    /// <returns>스킬 정보</returns>
     public SkillInfo GetSkillInfo()
     {
         return skillInfo;
     }
 
-    //해당 스킬의 종류를 반환
+    /// <summary>
+    /// 해당 스킬의 종류를 반환
+    /// </summary>
+    /// <returns>스킬 타입</returns>
     public SkillType GetSkillType()
     {
         return skillType;
     }
 
-    //해당 스킬의 상세 종류를 반환
+    /// <summary>
+    /// 해당 스킬의 상세 종류를 반환
+    /// </summary>
+    /// <returns>스킬 종류</returns>
     public abstract Enum GetSkillNum();
 }

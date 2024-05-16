@@ -35,8 +35,11 @@ public abstract class TargetSelector : MonoBehaviour
         }
     }
 
-    //레일에서 스킬을 선택하면 해당 함수를 호출하여 사용 범위를 설정
-    //(빈 곳을 클릭하면 스킬 사용 취소)
+    /// <summary>
+    /// 레일에서 스킬을 선택하면 해당 함수를 호출하여 사용 범위를 설정
+    /// (빈 곳을 클릭하면 스킬 사용 취소)
+    /// </summary>
+    /// <param name="skillV">사용 스킬</param>
     public void StartSelect(Skill skillV)
     {
         skill = skillV;
@@ -60,10 +63,15 @@ public abstract class TargetSelector : MonoBehaviour
         }
     }
 
-    //스킬의 범위를 확정했을 때 호출
+    /// <summary>
+    /// 스킬의 범위를 확정했을 때 호출
+    /// </summary>
+    /// <param name="v">선택한 위치 번호</param>
     public abstract void Select(byte v);
 
-    //스킬 사용을 취소하거나 스킬 사용을 확정했을 때 호출
+    /// <summary>
+    /// 스킬 사용을 취소하거나 스킬 사용을 확정했을 때 호출
+    /// </summary>
     protected void Close()
     {
         if (targets[0] != null)
@@ -76,7 +84,10 @@ public abstract class TargetSelector : MonoBehaviour
         connector.CloseSelecting();
     }
 
-    //스킬 타깃을 반환
+    /// <summary>
+    /// 스킬 타깃을 반환
+    /// </summary>
+    /// <returns>선택된 타깃들</returns>
     public Character[] GetTargets()
     {
         return targets;

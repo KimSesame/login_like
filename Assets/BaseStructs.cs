@@ -66,41 +66,106 @@ public enum SkillType
 
 public enum SkillAffectType
 {
-    DELAY, //시간차 피해
-    DEFENSE, //방어도 증가
-    ATK_INC, //공격력 증가
-    DOT, //도트 피해
-    MARK //표식
+    /// <summary>
+    /// 시간차 피해
+    /// </summary>
+    DELAY,
+    /// <summary>
+    /// 방어도 증가
+    /// </summary>
+    DEFENSE,
+    /// <summary>
+    /// 공격력 증가
+    /// </summary>
+    ATK_INC,
+    /// <summary>
+    /// 도트 피해
+    /// </summary>
+    DOT,
+    /// <summary>
+    /// 표식
+    /// </summary>
+    MARK
 }
 
 [Serializable]
 public struct SkillInfo
-{
-    public Sprite icon; //스킬 아이콘
-    public bool locked; //스킬 잠금
-    [Range(0, 6)] public byte cost; //스킬 사용 비용
-    public Target target; //스킬 사용 목표 (적, 아군, 전체)
-    public Range range; //스킬 사용 범위 (단독, 가로, 세로, 전체)
-    public float[] mass; //스킬 사용 효과의 양
+{ 
+    /// <summary>
+    /// 스킬 아이콘
+    /// </summary>
+    public Sprite icon;
+    /// <summary>
+    /// 스킬 잠금
+    /// </summary>
+    public bool locked;
+    /// <summary>
+    /// 스킬 사용 비용
+    /// </summary>
+    [Range(0, 6)] public byte cost;
+    /// <summary>
+    /// 스킬 사용 목표 (적, 아군, 전체)
+    /// </summary>
+    public Target target;
+    /// <summary>
+    /// 스킬 사용 범위 (단독, 가로, 세로, 전체)
+    /// </summary>
+    public Range range;
+    /// <summary>
+    /// 스킬 사용 효과의 양
+    /// </summary>
+    public float[] mass;
 }
 
 [Serializable]
 public struct Status
 {
-    public ushort serialNum; //캐릭터 고유 번호
+    /// <summary>
+    /// 캐릭터 고유 번호
+    /// </summary>
+    public ushort serialNum;
+    /// <summary>
+    /// 최대 체력
+    /// </summary>
     [Space(10)]
-    public float maxHp; //최대 체력
-    public float maxMp; //최대 마나
+    public float maxHp;
+    /// <summary>
+    /// 최대 마나
+    /// </summary>
+    public float maxMp;
+    /// <summary>
+    /// 공격력 
+    /// </summary>
     [Space(10)]
-    public int atk; //공격력
-    public int magicPower; //주문력
+    public int atk;
+    /// <summary>
+    /// 주문력
+    /// </summary>
+    public int magicPower;
+    /// <summary>
+    /// 방어력
+    /// </summary>
     [Space(10)]
-    public int def; //방어력
-    public int magicDef; //마법 저항력
+    public int def;
+    /// <summary>
+    /// 마법 저항력
+    /// </summary>
+    public int magicDef;
+    /// <summary>
+    /// 명중률
+    /// </summary>
     [Space(10)]
-    public float accuracy; //명중률
-    public float avoidRate; //회피율
-    public float criticalRate; //치명타율
-    public float ccResistance; //군중제어 저향력
-
+    public float accuracy;
+    /// <summary>
+    /// 회피율
+    /// </summary>
+    public float avoidRate;
+    /// <summary>
+    /// 치명타율
+    /// </summary>
+    public float criticalRate;
+    /// <summary>
+    /// 군중제어 저향력
+    /// </summary>
+    public float ccResistance;
 }

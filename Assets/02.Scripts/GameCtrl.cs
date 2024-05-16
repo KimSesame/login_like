@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class GameCtrl : MonoBehaviour
 {
-    //'GameCtrl.instance'의 형식으로 해당 스크립트를 호출
+    /// <summary>
+    /// 사용방법: GameCtrl.instance.사용할 함수
+    /// </summary>
     public static GameCtrl instance;
 
     public delegate void OnTurnStart();
@@ -16,12 +18,11 @@ public class GameCtrl : MonoBehaviour
 
     [SerializeField]
     Transform teamPosTrans, enemyPosTrans;
-    public Transform[] teamPos/*아군 배치 위치 배열*/, 
-        enemyPos/*적군 배치 위치 배열*/;
+    public Transform[] teamPos/*아군 배치 위치 배열*/, enemyPos/*적군 배치 위치 배열*/;
 
     [SerializeField]
     TMP_Text nowCostShower/*현재 남은 비용을 표시*/;
-    byte nowCost/*현재 비용*/, maxCost/*최대 비용*/ = 6;
+    byte nowCost/*현재 비용*/, maxCost = 6/*최대 비용*/;
 
     private void Awake()
     {
@@ -43,7 +44,10 @@ public class GameCtrl : MonoBehaviour
         CostSet();
     }
 
-    //레일에서 스킬을 선택할 때 호출하여 사용 스킬 정보를 전달
+    /// <summary>
+    /// 레일에서 스킬을 선택할 때 호출하여 사용 스킬 정보를 전달
+    /// </summary>
+    /// <param name="skill"></param>
     public void SelectSkill(Skill skill)
     {
         if (skill.GetSkillInfo().cost > nowCost)
@@ -57,7 +61,11 @@ public class GameCtrl : MonoBehaviour
         }
     }
 
-    //레일에서 스킬을 선택할 때 호출하여 사용 스킬 정보를 전달
+    /// <summary>
+    /// 레일에서 스킬을 선택할 때 호출하여 사용 스킬 정보를 전달
+    /// </summary>
+    /// <param name="skill">사용할 스킬</param>
+    /// <param name="owner">스킬의 주인 캐릭터</param>
     public void SelectSkill(Skill skill, Character owner)
     {
         if (skill.GetSkillInfo().cost > nowCost)
@@ -79,14 +87,19 @@ public class GameCtrl : MonoBehaviour
         TurnStart();
     }
 
-    //스킬 사용을 확정했을 때 호출하여 비용을 소모
+    /// <summary>
+    /// 스킬 사용을 확정했을 때 호출하여 비용을 소모
+    /// </summary>
+    /// <param name="cost"></param>
     public void UseCost(byte cost)
     {
         nowCost -= cost;
         CostSet();
     }
 
-    //현재 남은 비용을 보여줌
+    /// <summary>
+    /// 현재 남은 비용을 보여줌
+    /// </summary>
     public void CostSet()
     {
         nowCostShower.text = $"{nowCost}/6";

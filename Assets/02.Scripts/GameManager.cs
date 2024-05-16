@@ -4,9 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //다른 스크립트에서 해당 스크립트에 직접 접근할 수 있게
-    //static 형식의 instance 생성
-    //해당 스크립트 호출 방법: GameManager.instance.사용할 함수
+    /// <summary>
+    /// 사용방법: GameManager.instance.사용할 함수
+    /// </summary>
     public static GameManager instance;
 
     [SerializeField]
@@ -29,8 +29,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //씬 전환을 할 시 호출
-    //사용 방법: GameManager.intance.SceneChanger("씬 이름")
+    /// <summary>
+    /// 씬 전환을 할 시 호출
+    /// 사용 방법: GameManager.intance.SceneChanger("씬 이름")
+    /// </summary>
+    /// <param name="sceneName">로드할 씬의 고유 번호</param>
     public void SceneChanger(string sceneName)
     {
         if (openedWindows != null)
@@ -44,8 +47,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    //특정 창을 띄울 시 호출
-    //사용 방법: GameManager.intance.WindowCaller(창 인덱스)
+    /// <summary>
+    /// 특정 창을 띄울 시 호출
+    /// 사용 방법: GameManager.intance.WindowCaller(창 인덱스)
+    /// </summary>
+    /// <param name="winNum">생성할 창의 고유번호</param>
     public void WindowCaller(byte winNum)
     {
         if (openedWindows == null)
@@ -55,8 +61,10 @@ public class GameManager : MonoBehaviour
         openedWindows.Push(Instantiate(windowPrefabs[winNum]));
     }
 
-    //가장 최근의 창을 종료
-    //사용 방법: GameManager.intance.WindowDestroyer()
+    /// <summary>
+    /// 가장 최근의 창을 종료
+    /// 사용 방법: GameManager.intance.WindowDestroyer()
+    /// </summary>
     public void WindowDestroyer()
     {
         if (openedWindows != null && openedWindows.Count > 0)

@@ -53,7 +53,9 @@ public abstract class Character : MonoBehaviour
         GameCtrl.instance.TurnEnd -= OnTurnEnd;
     }
 
-    //턴이 시작될 때 호출
+    /// <summary>
+    /// 턴이 시작될 때 호출
+    /// </summary>
     public void OnTurnStart()
     {
         int count = affectsOnTurnStart.Count;
@@ -76,7 +78,9 @@ public abstract class Character : MonoBehaviour
         }
     }
 
-    //턴이 종료될 때 호출
+    /// <summary>
+    /// 턴이 종료될 때 호출
+    /// </summary>
     public void OnTurnEnd()
     {
         float defTmp = 0, atkTmp = 0;
@@ -113,30 +117,45 @@ public abstract class Character : MonoBehaviour
         defShower.text = $"{finalDef}";
     }
 
-    //캐릭터의 최종 공격력 반환
+    /// <summary>
+    /// 캐릭터의 최종 공격력 반환
+    /// </summary>
+    /// <returns>최종 공격력</returns>
     public float GetAtk()
     {
         return finalAtk;
     }
 
-    //캐릭터의 최종 방어도 반환
+    /// <summary>
+    /// 캐릭터의 최종 방어도 반환
+    /// </summary>
+    /// <returns>최종 방어도</returns>
     public float GetDef()
     {
         return finalDef;
     }
 
-    //캐릭터의 현재 체력을 표시
+    /// <summary>
+    /// 캐릭터의 현재 체력을 표시
+    /// </summary>
     public void SetHpShower()
     {
         nowHpImg.fillAmount = nowHp / status.maxHp;
         hpShower.text = $"{(int)nowHp}/{(int)status.maxHp}";
     }
 
-    //해당 캐릭터가 선택되었을 때 호출
+    /// <summary>
+    /// 해당 캐릭터가 선택되었을 때 호출
+    /// </summary>
     public abstract void Selected();
 
-    //피해를 받을 때 호출
-    public float GetSkilledDamaged(float mass1/*피해량*/, bool isPenetrate/*관통공격인지 확인*/)
+    /// <summary>
+    /// 피해를 받을 때 호출
+    /// </summary>
+    /// <param name="mass1">피해량</param>
+    /// <param name="isPenetrate">관통 공격</param>
+    /// <returns>실제 받은 피해량</returns>
+    public float GetSkilledDamaged(float mass1, bool isPenetrate)
     {
         float dmgedInc = 1;
         int count = affectsWhenDamaged.Count;
@@ -176,13 +195,23 @@ public abstract class Character : MonoBehaviour
         return dmgMass;
     }
 
-    //다중 공격을 받을 때 호출
+    /// <summary>
+    /// 다중 공격을 받을 때 호출
+    /// </summary>
+    /// <param name="mass1">피해량</param>
+    /// <param name="mass2">횟수</param>
+    /// <param name="isPenetrate">관통공격</param>
     public void GetSkilledMulipleDamage(float mass1, byte mass2, bool isPenetrate)
     {
         StartCoroutine(MultipleDMG(mass1, mass2, isPenetrate));
     }
 
-    //시간차 공격을 받을 때 호출
+    /// <summary>
+    /// 시간차 공격을 받을 때 호출
+    /// </summary>
+    /// <param name="mass">피해량</param>
+    /// <param name="isPenetrate">관통공격</param>
+    /// <param name="iconV">스킬 이미지</param>
     public void GetSkilledDelayDamage(float mass, bool isPenetrate, Sprite iconV)
     {
         SkillAffected affectObj = Instantiate(skillAffectsPrefab, stateTrans).GetComponent<SkillAffected>();
@@ -190,7 +219,10 @@ public abstract class Character : MonoBehaviour
         affectsOnTurnStart.Enqueue(affectObj);
     }
 
-    //힐을 받을 때 호출
+    /// <summary>
+    /// 힐을 받을 때 호출
+    /// </summary>
+    /// <param name="mass1">힐량</param>
     public void GetSkilledHeal(float mass1)
     {
         nowHp = Mathf.Clamp(nowHp + mass1, 0, status.maxHp);
@@ -198,8 +230,13 @@ public abstract class Character : MonoBehaviour
         SetHpShower();
     }
 
-    //방어도를 부여받을 때 호출
-    public void GetSkilledDefense(float mass1/*방어도*/, byte mass2/*지속 턴*/, Sprite iconV)
+    /// <summary>
+    /// 방어도를 부여받을 때 호출
+    /// </summary>
+    /// <param name="mass1">방어도</param>
+    /// <param name="mass2">지속 턴</param>
+    /// <param name="iconV">스킬 이미지</param>
+    public void GetSkilledDefense(float mass1, byte mass2, Sprite iconV)
     {
         SkillAffected affectObj = Instantiate(skillAffectsPrefab, stateTrans).GetComponent<SkillAffected>();
         finalDef = Mathf.Clamp(finalDef + mass1, 0, status.maxHp / 2);
@@ -208,8 +245,13 @@ public abstract class Character : MonoBehaviour
         defShower.text = $"{finalDef}";
     }
 
-    //공격력 증가를 부여받을 때 호출
-    public void GetSkilledAtkInc(float mass1/*공격력 증가량*/, byte mass2/*지속 턴*/, Sprite iconV)
+    /// <summary>
+    /// 공격력 증가를 부여받을 때 호출
+    /// </summary>
+    /// <param name="mass1">공격력 증가량</param>
+    /// <param name="mass2">지속 턴</param>
+    /// <param name="iconV">스킬 이미지</param>
+    public void GetSkilledAtkInc(float mass1, byte mass2, Sprite iconV)
     {
         SkillAffected affectObj = Instantiate(skillAffectsPrefab, stateTrans).GetComponent<SkillAffected>();
         finalAtk += mass1;
@@ -217,15 +259,25 @@ public abstract class Character : MonoBehaviour
         affectsOnTurnEnd.Enqueue(affectObj);
     }
 
-    //표식을 받을 때 호출
-    public void GetSkilledMark(float mass/*받는 피해 증가량*/, Sprite iconV)
+    /// <summary>
+    /// 표식을 받을 때 호출
+    /// </summary>
+    /// <param name="mass">받는 피해 증가량</param>
+    /// <param name="iconV">스킬 이미지</param>
+    public void GetSkilledMark(float mass, Sprite iconV)
     {
         SkillAffected affectObj = Instantiate(skillAffectsPrefab, stateTrans).GetComponent<SkillAffected>();
         affectObj.Set(iconV, SkillAffectType.MARK, false, mass, 1);
         affectsWhenDamaged.Enqueue(affectObj);
     }
 
-    //다중 공격 효과 구현
+    /// <summary>
+    /// 다중 공격 효과 구현
+    /// </summary>
+    /// <param name="mass1">피해량</param>
+    /// <param name="mass2">피해 횟수</param>
+    /// <param name="isPenetrate">관통공격</param>
+    /// <returns></returns>
     IEnumerator MultipleDMG(float mass1, byte mass2, bool isPenetrate)
     {
         WaitForSeconds seconds = new WaitForSeconds(0.1f);
