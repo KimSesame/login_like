@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class SkillSpawn : MonoBehaviour
 {
+    [SerializeField]
+    Transform trashBox;
     // Start is called before the first frame update
     public GameObject skill1;
     public GameObject skill2;
@@ -18,7 +20,7 @@ public class SkillSpawn : MonoBehaviour
 
     public List<GameObject> slist = new List<GameObject>();
     List<int> numbers = new List<int> { 0, 1, 2, 3, 4, 5, 6 };
-    float max = 8;
+    float max = 4;
     public static float cur = 0;
 
     public int sufflecount = 0;
@@ -47,8 +49,9 @@ public class SkillSpawn : MonoBehaviour
                 sufflecount = 0;
                 ShuffleList(numbers);
             }
-            GameObject new_skill = Instantiate(slist[numbers[sufflecount]], new Vector3(10, -3f, 0), Quaternion.identity);
+            GameObject new_skill = Instantiate(slist[numbers[sufflecount]], transform.position, Quaternion.identity);
             new_skill.GetComponent<Skill>().owner = GameCtrl.instance.teamPos[0].GetChild(0).GetComponent<Character>();
+            new_skill.GetComponent<SkillIcon>().moveTarget = trashBox;
             Deck.deck.Add(new_skill);
             sufflecount++;
             cur++;
@@ -60,6 +63,15 @@ public class SkillSpawn : MonoBehaviour
         else if(cur>max)
         {
             isScrollFilled = true;
+        }
+    }
+
+    public void AddScroll()
+    {
+        if (max < 7)
+        {
+            max++;
+            transform.position = new Vector3(transform.position.x + 1.5f, transform.position.y, transform.position.z);
         }
     }
 

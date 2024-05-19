@@ -9,7 +9,8 @@ public class SkillIcon : MonoBehaviour
     private Rigidbody2D rb;
     private bool canMove = true;
     private bool click = false;
-
+    bool selected;
+    public Transform moveTarget;
 
     void Start()
     {
@@ -19,7 +20,7 @@ public class SkillIcon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canMove)
+        if (canMove && !selected)
         {
             rb.velocity = new Vector2(-1, 0) * speed;
         }
@@ -30,6 +31,16 @@ public class SkillIcon : MonoBehaviour
             transform.position = currentPosition;
         }
 
+        if (selected)
+        {
+            transform.position = Vector3.Lerp(transform.position, moveTarget.position, Time.deltaTime * 4);
+            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, Time.deltaTime * 2);
+            transform.Rotate(Vector3.forward * 2);
+            if ((transform.position - moveTarget.position).sqrMagnitude < 0.1f)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
     
     private void OnMouseDown()
@@ -39,10 +50,11 @@ public class SkillIcon : MonoBehaviour
         {
             Deck.usedSkills.Add(gameObject.GetComponent<SpriteRenderer>().sprite);
 
-            Destroy(gameObject);
             SkillSpawn.cur--;
 
             GetComponent<Skill>().SkillSelected();
+            selected = true;
+            Destroy(GetComponent<BoxCollider2D>());
         }
     }
     void OnCollisionEnter2D(Collision2D collision)
@@ -68,5 +80,10 @@ public class SkillIcon : MonoBehaviour
         click = true;
 
         Deck.deck.Remove(gameObject);
+    }
+
+    public void MoveToTrashBox(Transform targetPos)
+    {
+
     }
 }
