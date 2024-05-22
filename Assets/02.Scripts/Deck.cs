@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Deck : MonoBehaviour
 {
     public static List<GameObject> deck = new List<GameObject>();
-    public static List<Sprite> usedSkills = new List<Sprite> ();
+    public static List<GameObject> usedSkills = new List<GameObject> ();
 
     public GameObject popup;
 

@@ -28,7 +28,7 @@ public class UsedSkillsWindow : MonoBehaviour
         {
             GameObject imgObject = Instantiate(imgPrefab, img_create_pos, Quaternion.identity);
             Image img = imgObject.GetComponent<Image>();
-            Sprite sp = Deck.usedSkills[i];
+            Sprite sp = Deck.usedSkills[i].GetComponent<SkillInfo>().icon;
 
             img.sprite = sp;
 

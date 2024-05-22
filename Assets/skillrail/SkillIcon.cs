@@ -48,7 +48,7 @@ public class SkillIcon : MonoBehaviour
         //클릭시
         if (click == true)
         {
-            Deck.usedSkills.Add(gameObject.GetComponent<SpriteRenderer>().sprite);
+            Deck.usedSkills.Add(gameObject);
 
             SkillSpawn.cur--;
 

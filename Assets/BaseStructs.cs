@@ -100,6 +100,10 @@ public struct SkillInfo
     /// </summary>
     public bool locked;
     /// <summary>
+    /// 스킬 정보
+    /// </summary>
+    public string descript;
+    /// <summary>
     /// 스킬 사용 비용
     /// </summary>
     [Range(0, 6)] public byte cost;
